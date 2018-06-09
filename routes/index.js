@@ -2,17 +2,8 @@ var express = require('express');
 var router = express.Router();
 var app = express();
 
-var server = require('http').createServer(app);
-var io = require('socket.io').listen(server);
-
-io.on('connection', function (socket) {
-    console.log("connected");
-});
-
 users = [];
 connections = [];
-
-console.log("index js wczytany");
 
 // Get Homepage
 router.get('/', ensureAuthenticated, function(req, res){
@@ -31,11 +22,11 @@ function ensureAuthenticated(req, res, next){
 
 module.exports = router;
 
-io.on('connection', function (socket) {
-    connections.push(socket);
-    console.log('Connected: %s sockets connected', connections.length);
-
-    //disconnect
-    connections.splice(connections.indexOf(socket), 1);
-    console.log('Disconnected: %s sockets connected', connections.length);
-});
+// io.on('connection', function (socket) {
+//     connections.push(socket);
+//     console.log('Connected: %s sockets connected', connections.length);
+//
+//     //disconnect
+//     connections.splice(connections.indexOf(socket), 1);
+//     console.log('Disconnected: %s sockets connected', connections.length);
+// });

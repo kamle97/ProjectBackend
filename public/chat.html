@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat app</title>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    Witaj przybyszu z dalekiej planety
+    <h2 class="page-header">
+        Zalogowano jako {{user.name}}
+        <br/>
+        <br/>
+        <div class = "container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="well">
+                        <h3>Użytkownicy online</h3>
+                        <ul class="list-group" id="users"></ul>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="chat" id="chat">
+
+                    </div>
+                    <form id="messageForm">
+                        <div class="form-group">
+                            <label>Wpisz wiadomość</label>
+                            <textarea class="form-control" id="message"></textarea>
+                            <br/>
+                            <input type="submit" class="btn btn-primary" value="Wyślij wiadomość"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </h2>
+
+    <script>
+        $(function () {
+            var socket = io();
+        })
+    </script>
+
+</body>
+</html>

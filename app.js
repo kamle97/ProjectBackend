@@ -20,6 +20,13 @@ var users = require('./routes/users');
 // Init App
 var app = express();
 
+var http = require('http').Server(express);
+var io = require('socket.io')(http);
+
+io.on('connection', function (socket) {
+    console.log("socket polaczony");
+});
+
 // View Engine
 app.set('views', path.join(__dirname, 'views'));
 app.engine('handlebars', exphbs({defaultLayout:'layout'}));
@@ -78,7 +85,7 @@ app.use('/', routes);
 app.use('/users', users);
 
 //Set Port
-app.set('port', (process.env.PORT || 3000));
+app.set('port', (process.env.PORT || 8080));
 
 app.listen(app.get('port'), function(){
     console.log('Server started on port '+app.get('port'));
