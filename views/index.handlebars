@@ -1,0 +1,37 @@
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+
+<h2 class="page-header">
+    Zalogowano jako {{user.name}}
+    <br/>
+    <br/>
+    <div class = "container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="well">
+                    <h3>Użytkownicy online</h3>
+                    <ul class="list-group" id="users"></ul>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="chat" id="chat">
+
+                </div>
+                <form id="messageForm">
+                    <div class="form-group">
+                        <label>Wpisz wiadomość</label>
+                        <textarea class="form-control" id="message"></textarea>
+                        <br/>
+                        <input type="submit" class="btn btn-primary" value="Wyślij wiadomość"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</h2>
+
+<script>
+    $(function () {
+        var socket = io.connect();
+    })
+</script>

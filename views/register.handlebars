@@ -1,0 +1,35 @@
+<h3 class="page-header">Panel rejestracji</h3>
+{{#if user}}
+    <div class="alert alert-danger">Nazwa użytkownika zajęta!</div>
+{{/if}}
+{{#if mail}}
+    <div class="alert alert-danger">Użytkownik z tym adresem e-mail już istnieje!</div>
+{{/if}}
+{{#if errors}}
+    {{#each errors}}
+        <div class="alert alert-danger">Błąd : {{msg}}</div>
+    {{/each}}
+{{/if}}
+<form method="post" action="/users/register">
+    <div class="form-group">
+        <label>Imię</label>
+        <input type="text" class="form-control" placeholder="Imię" name="name">
+    </div>
+    <div class="form-group">
+        <label>Nazwa użytkownika</label>
+        <input type="text" class="form-control" placeholder="Nazwa użytkownika" name="username">
+    </div>
+    <div class="form-group">
+        <label>Adres e-mail</label>
+        <input type="email" class="form-control" placeholder="e-mail" name="email">
+    </div>
+    <div class="form-group">
+        <label>Hasło</label>
+        <input type="password" class="form-control" placeholder="Hasło" name="password">
+    </div>
+    <div class="form-group">
+        <label>Powtórz hasło</label>
+        <input type="password" class="form-control" placeholder="Powtórz hasło" name="password2">
+    </div>
+    <button type="submit" class="btn btn-default">Dodaj użytkownika</button>
+</form>
